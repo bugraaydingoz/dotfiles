@@ -4,7 +4,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # brew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ -f "/opt/homebrew/bin/brew" ]] then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+export EDITOR=nvim
 
 # bun
 [ -s "/Users/bugraaydingoz/.bun/_bun" ] && source "/Users/bugraaydingoz/.bun/_bun"
@@ -77,7 +81,7 @@ alias ls='ls -G --color'
 alias lsa='ls -lah'
 alias cd='z'
 alias grep='rg'
-
+alias vim='nvim'
 
 # Shell integrations
 eval "$(fzf --zsh)"
